@@ -1,5 +1,5 @@
 @echo off
-@setlocal enabledelayedexpansion
+@setlocal EnableDelayedExpansion
 @set /p cityCount= How many countries exist up to 5?
 if "%cityCount%"=="" (set cityCount=5)
 set starterCounter=0
@@ -216,8 +216,7 @@ set country%starterCounter%Tech=0
 goto citySetLoop
 :doneStart
 @echo Done with initial variables...
-pause
-exit
+goto setWorld
 :letterConvert
 set ABCvar=%ABCvar%!abcRead!
 if %ABCvar%==1 (set %numI%=a)
@@ -248,3 +247,64 @@ goto :eof
 :numericalI
 @echo Land generated
 goto citySetLoop
+:setWorld
+@echo Building work chunks...
+:: tL tM tR
+:: mL 00 mR
+:: bL bM bR
+if %math3b%==0 goto fertileBuild
+set %tL%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %tM%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %tR%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %mL%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %mR%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %bL%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %bM%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+set %bR%=3
+set /a math3b=%math3b%-1
+if %math3b%==0 goto fertileBuild
+echo %math3b% left ugh
+:fertileBuild
+@echo on
+if %math2b%==0 goto doneBuild
+set %FtL%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FtM%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FtR%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FmL%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FmR%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FbL%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FbM%=3
+set /a math2b=%math2b%-1
+if %math2b%==0 goto doneBuild
+set %FbR%=3
+set /a math2b=%math2b%-1
+echo %math2b% left ugh
+:doneBuild
+@echo Done generating the world, 300 lines later, time for the hard part!
+pause
